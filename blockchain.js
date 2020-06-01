@@ -3,6 +3,7 @@ const Block = require('./block');
 module.exports = class Blockchain{
     constructor(){
         this.chain = [this.createGenesisBlock()];
+        this.difficulty = 4;
     }
 
     createGenesisBlock(){
@@ -15,10 +16,9 @@ module.exports = class Blockchain{
 
     addBlock(newBlock){
         newBlock.index = this.getLastestBlock().index + 1;
-        newBlock.nonce = this.getLastestBlock().nonce + 1;
         newBlock.previousHash = this.getLastestBlock().hash;
         newBlock.timestamp = new Date().getTime();
-        newBlock.hash = newBlock.calculateHash();
+        newBlock.mineBlock(this.difficulty);
         this.chain.push(newBlock);
     }
 

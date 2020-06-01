@@ -6,12 +6,19 @@ module.exports = class Block{
             this.previousHash = previousHash;
             this.timestamp = timestamp;
             this.data = data;
-            this.nonce = nonce;
+            this.nonce = 0;
             this.hash = this.calculateHash();
         }
     
         calculateHash(){
             return SHA256(this.index + this.previousHash + this.timestamp + this.nonce + JSON.stringify(this.data)).toString();
+        }
+
+        mineBlock(difficulty){
+            while(this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")){
+                this.nonce++;
+                this.hash = this.calculateHash();
+            }
         }
     }
     

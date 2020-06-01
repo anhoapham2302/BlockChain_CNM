@@ -2,7 +2,7 @@
   "name": "blockchain_cnm",
   "version": "1.0.0",
   "description": "Đồ án blockchain",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,15 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/anhoapham2302/BlockChain_CNM.git"
   },
-  "author": "",
+  "author": "1612210",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anhoapham2302/BlockChain_CNM/issues"
   },
-  "homepage": "https://github.com/anhoapham2302/BlockChain_CNM#readme",
-  "dependencies": {
-    "crypto-js": "^4.0.0",
-    "express": "^4.17.1",
-    "sha256": "^0.2.0"
-  }
+  "homepage": "https://github.com/anhoapham2302/BlockChain_CNM#readme"
 }

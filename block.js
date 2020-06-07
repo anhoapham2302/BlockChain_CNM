@@ -1,4 +1,6 @@
 const SHA256 = require('crypto-js/sha256')
+const Transaction = require('./transaction');
+
 
 module.exports = class Block{
         constructor(index, timestamp, transaction, previousHash) {
@@ -19,6 +21,15 @@ module.exports = class Block{
                 this.nonce++;
                 this.hash = this.calculateHash();
             }
+        }
+
+        hasValidTransaction(){
+            for(const tran of this.data){
+                if(!tran.isValid()){
+                    return false;
+                }
+            }
+            return true;
         }
     }
     

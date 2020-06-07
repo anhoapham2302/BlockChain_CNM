@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/anhoapham2302/BlockChain_CNM/issues"
   },
-  "homepage": "https://github.com/anhoapham2302/BlockChain_CNM#readme"
+  "homepage": "https://github.com/anhoapham2302/BlockChain_CNM#readme",
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "elliptic": "^6.5.2",
+    "express": "^4.17.1"
+  }
 }

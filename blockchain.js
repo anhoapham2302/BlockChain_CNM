@@ -32,7 +32,13 @@ module.exports = class Blockchain{
         ];
     }
 
-    createTransaction(transaction){
+    addTransaction(transaction){
+        if(!transaction.fromAddress || !transaction.toAddress){
+            throw new Error('Transaction must include from address and to address!');
+        }
+        if(!transaction.isValid()){
+            throw new Error('Cannot add transaction to chain');
+        }
         this.pendingTransaction.push(transaction);
     }
 
@@ -56,6 +62,10 @@ module.exports = class Blockchain{
         for (let i = 1; i < this.chain.length; i++){
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i-1];
+
+            if(!currentBlock.hasValidTransaction()){
+                return false;
+            }
 
             if(currentBlock.hash !== currentBlock.calculateHash){
                 return false;

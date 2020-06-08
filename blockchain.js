@@ -6,7 +6,7 @@ module.exports = class Blockchain{
         this.chain = [this.createGenesisBlock()];
         this.difficulty = 4;
         this.pendingTransaction = [];
-        this.miningReward = 10;
+        this.miningReward = 100;
     }
 
     createGenesisBlock(){
@@ -18,18 +18,22 @@ module.exports = class Blockchain{
     }
 
     addBlock(newBlock){
+        if(this.chain.length === 0){
+            this.chain = [this.createGenesisBlock()]
+        }
+        else{
         newBlock.index = this.getLastestBlock().index + 1;
         newBlock.previousHash = this.getLastestBlock().hash;
         newBlock.timestamp = new Date().getTime();
         newBlock.mineBlock(this.difficulty);
         this.chain.push(newBlock);
+        }
     }
 
     mineTransaction(miningRewardAddress){
         this.addBlock(new Block(null, null, this.pendingTransaction));
-        this.pendingTransaction = [
-            new Transaction('system', miningRewardAddress, this.miningReward)
-        ];
+        var tx = new Transaction('system', miningRewardAddress, this.miningReward)
+        this.pendingTransaction.push(tx);
     }
 
     addTransaction(transaction){

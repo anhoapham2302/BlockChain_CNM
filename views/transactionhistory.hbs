@@ -1,0 +1,13 @@
+<div class="row">
+    {{#each block}}
+    <div class="col-sm-10">
+        <ul class="list-group">
+        <li class="list-group-item">Block: {{index}}</li>
+        <li class="list-group-item"><a style="color: brown;">Previoushash:</a> {{previousHash}} </li>
+        <li class="list-group-item">Hash: {{hash}}</li>
+        <li class="list-group-item">Timestamp: {{timestamp}}</li>
+        <li class="list-group-item">Nonce: {{nonce}}</li>
+        </ul>
+    </div>
+    {{/each}}
+</div>

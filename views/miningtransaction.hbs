@@ -1,0 +1,15 @@
+<div class="row">
+    {{#each tran}}
+    <div class="col-sm-12">
+        <ul class="list-group">
+        <li class="list-group-item">From: {{fromAddress}} (That's Your)</li>
+        <li class="list-group-item">To: {{toAddress}}</li>
+        <li class="list-group-item">Amount: {{amount}}</li>
+        </ul>
+        <button type="submit" class="btn btn-success center-block" onclick="window.location.href = '/pending'">                                  
+                                   Mining
+                                </button>      
+    </div>
+       
+    {{/each}}
+</div>
